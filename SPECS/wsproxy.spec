@@ -1,11 +1,11 @@
 Summary: Websockets proxy for VNC traffic
 Name:    wsproxy
-Version: 1.4.0
-Release: 5%{?dist}
+Version: 1.6.0
+Release: 4%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/wsproxy
 Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/%{name}/archive?at=v%{version}&format=tar.gz&prefix=%{name}-%{version}#/%{name}-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.4.0&format=tar.gz&prefix=wsproxy-1.4.0#/wsproxy-1.4.0.tar.gz) = 57397f9dffcc59744a9565b16233102aa6c22b07
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.6.0&format=tar.gz&prefix=wsproxy-1.6.0#/wsproxy-1.6.0.tar.gz) = c96efc1b130cb42192bc82f5b8c1577d64853915
 BuildRequires: xs-opam-repo
 
 %description
@@ -24,6 +24,14 @@ jbuilder build
 /opt/xensource/libexec/wsproxy
 
 %changelog
+* Tue May 29 2018 Christian Lindig <christian.lindig@citrix.com> - 1.6.0-1
+- wsproxy: update Lwt functions invocations
+
+* Wed Apr 11 2018 Christian Lindig <christian.lindig@citrix.com> - 1.5.0-1
+- wsproxy: fix warning Re_str -> Re.Str
+- helpers, lwt_support: make safe-string compliant
+- helpers.ml: avoid copying the string in unmask
+
 * Fri Jan 26 2018 Christian Lindig <christian.lindig@citrix.com> - 1.4.0-1
 - CP-23210: Refactor wsproxy for unit tests
 - CP-23210: Update opam file
