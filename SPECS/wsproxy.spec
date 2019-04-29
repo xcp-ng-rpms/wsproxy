@@ -1,11 +1,15 @@
 Summary: Websockets proxy for VNC traffic
 Name:    wsproxy
-Version: 1.6.0
-Release: 4%{?dist}
+Version: 1.9.0
+Release: 1%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/wsproxy
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/%{name}/archive?at=v%{version}&format=tar.gz&prefix=%{name}-%{version}#/%{name}-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.6.0&format=tar.gz&prefix=wsproxy-1.6.0#/wsproxy-1.6.0.tar.gz) = c96efc1b130cb42192bc82f5b8c1577d64853915
+
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.9.0&format=tar.gz&prefix=wsproxy-1.9.0#/wsproxy-1.9.0.tar.gz
+
+
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.9.0&format=tar.gz&prefix=wsproxy-1.9.0#/wsproxy-1.9.0.tar.gz) = 3b35e1d6b7e97d8a1e66548e4a1533cfeb59b27f
+
 BuildRequires: xs-opam-repo
 
 %description
@@ -24,6 +28,15 @@ jbuilder build
 /opt/xensource/libexec/wsproxy
 
 %changelog
+* Wed Feb 20 2019 Christian Lindig <christian.lindig@citrix.com> - 1.9.0-1
+- CA-309048 add support for domain sockets
+
+* Mon Jan 07 2019 Christian Lindig <christian.lindig@citrix.com> - 1.8.0-1
+- Ported from jbuilder to dune.
+
+* Wed Jan 02 2019 Christian Lindig <christian.lindig@citrix.com> - 1.7.0-1
+- CP-30062 update dependencies for OCaml 4.07, Lwt 4.1
+
 * Tue May 29 2018 Christian Lindig <christian.lindig@citrix.com> - 1.6.0-1
 - wsproxy: update Lwt functions invocations
 
