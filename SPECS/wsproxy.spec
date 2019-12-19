@@ -1,14 +1,14 @@
 Summary: Websockets proxy for VNC traffic
 Name:    wsproxy
-Version: 1.9.0
+Version: 1.12.0
 Release: 1%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/wsproxy
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.9.0&format=tar.gz&prefix=wsproxy-1.9.0#/wsproxy-1.9.0.tar.gz
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.12.0&format=tar.gz&prefix=wsproxy-1.12.0#/wsproxy-1.12.0.tar.gz
 
 
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.9.0&format=tar.gz&prefix=wsproxy-1.9.0#/wsproxy-1.9.0.tar.gz) = 3b35e1d6b7e97d8a1e66548e4a1533cfeb59b27f
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.12.0&format=tar.gz&prefix=wsproxy-1.12.0#/wsproxy-1.12.0.tar.gz) = 6e80d9d69b8a460ef3da45adf524ea1146545e1c
 
 BuildRequires: xs-opam-repo
 
@@ -19,7 +19,11 @@ Websockets proxy for VNC traffic
 %autosetup -p1
 
 %build
-jbuilder build
+dune build --profile=release
+
+# needs 'qcheck' in xs-opam
+#%check
+#dune runtest --profile=release
 
 %install
 %{__install} -D -m 755 _build/install/default/bin/wsproxy %{buildroot}/opt/xensource/libexec/wsproxy
@@ -28,6 +32,26 @@ jbuilder build
 /opt/xensource/libexec/wsproxy
 
 %changelog
+* Thu Nov 20 2019 Pau Ruiz Safont <pau.safont@citrix.com> - 1.12.0-1
+- CP-330919: Revert changes for CP-32138
+
+* Tue Oct 29 2019 Edvin Török <edvin.torok@citrix.com> - 1.11.0-1
+- CP-32138: replace deprecated Lwt_log with Logs_lwt
+- CP-32138: replace deprecated recv_msg from Lwt_unix
+- CP-32138: do not daemonize ourselves
+- CP-32138: simplify path setup
+- CP-32138: Use collaborative log reporter
+- CP-32138: Generate more descriptive messages when match fails
+- cli: stop logging debug-level messages by default
+- CP-32138: Do not manage pid files
+- CP-32138: use an already activated socket
+
+* Fri Aug 23 2019 Edwin Török <edvin.torok@citrix.com> - 1.10.0-2
+- bump packages after xs-opam update
+
+* Wed Jun 05 2019 Christian Lindig <christian.lindig@citrix.com> - 1.10.0-1
+- Update base64 to 3.1.0
+
 * Wed Feb 20 2019 Christian Lindig <christian.lindig@citrix.com> - 1.9.0-1
 - CA-309048 add support for domain sockets
 
