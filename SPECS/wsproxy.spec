@@ -1,7 +1,7 @@
 Summary: Websockets proxy for VNC traffic
 Name:    wsproxy
 Version: 1.12.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/wsproxy
 
