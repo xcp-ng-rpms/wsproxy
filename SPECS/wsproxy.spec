@@ -1,7 +1,7 @@
 Summary: Websockets proxy for VNC traffic
 Name:    wsproxy
 Version: 1.12.0
-Release: 2%{?dist}
+Release: 5%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/wsproxy
 
@@ -11,6 +11,8 @@ Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy
 Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.12.0&format=tar.gz&prefix=wsproxy-1.12.0#/wsproxy-1.12.0.tar.gz) = 6e80d9d69b8a460ef3da45adf524ea1146545e1c
 
 BuildRequires: xs-opam-repo
+
+Requires: libev
 
 %description
 Websockets proxy for VNC traffic
@@ -32,6 +34,15 @@ dune build --profile=release
 /opt/xensource/libexec/wsproxy
 
 %changelog
+* Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 1.12.0-5
+- Bump package for libev dependency
+
+* Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 1.12.0-4
+- Bump package after xs-opam update
+
+* Tue Jul 13 2021 Edwin Török <edvin.torok@citrix.com> - 1.12.0-3
+- bump packages after xs-opam update
+
 * Thu Nov 20 2019 Pau Ruiz Safont <pau.safont@citrix.com> - 1.12.0-1
 - CP-330919: Revert changes for CP-32138
 
