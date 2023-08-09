@@ -1,15 +1,12 @@
+%global package_speccommit 1d30e9b477299216e788d2f9156528c5bca66424
+%global package_srccommit v1.12.0
 Summary: Websockets proxy for VNC traffic
 Name:    wsproxy
 Version: 1.12.0
-Release: 5%{?dist}
-License: LGPL+linking exception
+Release: 11%{?xsrel}%{?dist}
+license: LGPL-2.0-only WITH OCaml-LGPL-linking-exception
 URL:     https://github.com/xapi-project/wsproxy
-
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.12.0&format=tar.gz&prefix=wsproxy-1.12.0#/wsproxy-1.12.0.tar.gz
-
-
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/wsproxy/archive?at=v1.12.0&format=tar.gz&prefix=wsproxy-1.12.0#/wsproxy-1.12.0.tar.gz) = 6e80d9d69b8a460ef3da45adf524ea1146545e1c
-
+Source0: wsproxy-1.12.0.tar.gz
 BuildRequires: xs-opam-repo
 
 Requires: libev
@@ -34,6 +31,25 @@ dune build --profile=release
 /opt/xensource/libexec/wsproxy
 
 %changelog
+* Thu Jul 20 2023 Rob Hoes <rob.hoes@citrix.com> - 1.12.0-11
+- Bump release and rebuild
+
+* Mon Jun 19 2023 Christian Lindig <christian.lindig@citrix.com> - 1.12.0-10
+- Bump release and rebuild
+
+* Thu Jun 08 2023 Christian Lindig <christian.lindig@citrix.com> - 1.12.0-9
+- Bump release and rebuild
+
+* Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 1.12.0-8
+- Bump release and rebuild
+
+* Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 1.12.0-7
+- Bump release and rebuild
+
+* Thu Feb 23 2023 Pau Ryuz Safont <pau.ruizsafont@cloud.com> - 1.12.0-6
+- Fix bogus date
+- Use SPDX identifier as license
+
 * Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 1.12.0-5
 - Bump package for libev dependency
 
@@ -43,7 +59,7 @@ dune build --profile=release
 * Tue Jul 13 2021 Edwin Török <edvin.torok@citrix.com> - 1.12.0-3
 - bump packages after xs-opam update
 
-* Thu Nov 20 2019 Pau Ruiz Safont <pau.safont@citrix.com> - 1.12.0-1
+* Wed Nov 20 2019 Pau Ruiz Safont <pau.safont@citrix.com> - 1.12.0-1
 - CP-330919: Revert changes for CP-32138
 
 * Tue Oct 29 2019 Edvin Török <edvin.torok@citrix.com> - 1.11.0-1
