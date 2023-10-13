@@ -1,9 +1,9 @@
-%global package_speccommit 1d30e9b477299216e788d2f9156528c5bca66424
+%global package_speccommit eb5ded3f20147e348e751a06b96c87efacef2b4e
 %global package_srccommit v1.12.0
 Summary: Websockets proxy for VNC traffic
 Name:    wsproxy
 Version: 1.12.0
-Release: 11%{?xsrel}%{?dist}
+Release: 12%{?xsrel}%{?dist}
 license: LGPL-2.0-only WITH OCaml-LGPL-linking-exception
 URL:     https://github.com/xapi-project/wsproxy
 Source0: wsproxy-1.12.0.tar.gz
@@ -31,6 +31,9 @@ dune build --profile=release
 /opt/xensource/libexec/wsproxy
 
 %changelog
+* Mon Oct 02 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 1.12.0-12
+- Bump release and rebuild
+
 * Thu Jul 20 2023 Rob Hoes <rob.hoes@citrix.com> - 1.12.0-11
 - Bump release and rebuild
 
